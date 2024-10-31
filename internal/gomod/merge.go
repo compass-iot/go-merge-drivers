@@ -1,6 +1,8 @@
 package gomod
 
 import (
+	"strings"
+
 	"golang.org/x/mod/modfile"
 	"golang.org/x/mod/semver"
 )
@@ -17,6 +19,10 @@ func Merge(current, other, ancestor modfile.File) modfile.File {
 	return mergeChanges(mergedChanges, ancestor)
 }
 
+func isCompassOwned(path string) bool {
+	return strings.HasPrefix(path, "buf.build/gen/go/compassiot") || strings.HasPrefix(path, "buf.build/gen/go/nativeconnect")
+}
+
 // mergeChanges merges the two changesets, preferring higher-versioned values,
 // then the current changes over the other changes.
 func mergeChanges(currentChanges, otherChanges modfile.File) modfile.File {
@@ -27,11 +33,11 @@ func mergeChanges(currentChanges, otherChanges modfile.File) modfile.File {
 	}
 
 	for _, req := range currentChanges.Require {
-		otherReq, ok := otherReqs[req.Mod.Path]
+		otherReq, found := otherReqs[req.Mod.Path]
 
 		// If the other require statement doesn't exist, or the current
 		// require is a higher version, then skip.
-		if !ok || semver.Compare(req.Mod.Version, otherReq.Mod.Version) > 0 {
+		if !found || isCompassOwned(req.Mod.Path) || semver.Compare(req.Mod.Version, otherReq.Mod.Version) > 0 {
 			otherChanges.AddRequire(req.Mod.Path, req.Mod.Version)
 		}
 	}
