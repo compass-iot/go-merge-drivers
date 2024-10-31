@@ -10,9 +10,9 @@ import (
 	"os"
 	"path"
 
-	"github.com/crystalix007/go-merge-drivers/internal/flags"
-	"github.com/crystalix007/go-merge-drivers/internal/gomod"
-	"github.com/crystalix007/go-merge-drivers/internal/gosum"
+	"github.com/compassiot/go-merge-drivers/internal/flags"
+	"github.com/compassiot/go-merge-drivers/internal/gomod"
+	"github.com/compassiot/go-merge-drivers/internal/gosum"
 	"github.com/spf13/cobra"
 )
 

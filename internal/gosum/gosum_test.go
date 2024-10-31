@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/crystalix007/go-merge-drivers/internal/gosum"
+	"github.com/compassiot/go-merge-drivers/internal/gosum"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

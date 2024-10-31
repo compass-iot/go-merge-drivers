@@ -1,4 +1,4 @@
-module github.com/crystalix007/go-merge-drivers
+module github.com/compassiot/go-merge-drivers
 
 go 1.22.2
 
