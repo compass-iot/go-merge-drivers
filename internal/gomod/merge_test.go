@@ -44,6 +44,14 @@ func TestMerge(t *testing.T) {
 	modRequires := findRequires(merged, "golang.org/x/mod")
 	require.Len(t, modRequires, 1)
 
+	compassiotRequires := findRequires(merged, "buf.build/gen/go/compassiot/api/connectrpc/go")
+	require.Len(t, compassiotRequires, 1)
+	require.Equal(t, "v0.2.0", compassiotRequires[0].Mod.Version)
+
+	nativeconnectRequires := findRequires(merged, "buf.build/gen/go/nativeconnect/api/connectrpc/go")
+	require.Len(t, nativeconnectRequires, 1)
+	require.Equal(t, "v0.3.0", nativeconnectRequires[0].Mod.Version)
+
 	// Use version from other.go.mod, as it is a full major version greater.
 	assert.Equal(t, "v1.17.0", modRequires[0].Mod.Version)
 
