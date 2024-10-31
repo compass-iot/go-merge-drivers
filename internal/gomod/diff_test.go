@@ -4,7 +4,7 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/compassiot/go-merge-drivers/internal/gomod"
+	"github.com/compass-iot/go-merge-drivers/internal/gomod"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/mod/modfile"

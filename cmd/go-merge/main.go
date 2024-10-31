@@ -10,9 +10,9 @@ import (
 	"os"
 	"path"
 
-	"github.com/compassiot/go-merge-drivers/internal/flags"
-	"github.com/compassiot/go-merge-drivers/internal/gomod"
-	"github.com/compassiot/go-merge-drivers/internal/gosum"
+	"github.com/compass-iot/go-merge-drivers/internal/flags"
+	"github.com/compass-iot/go-merge-drivers/internal/gomod"
+	"github.com/compass-iot/go-merge-drivers/internal/gosum"
 	"github.com/spf13/cobra"
 )
 
